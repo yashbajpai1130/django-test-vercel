@@ -1,9 +1,15 @@
 {
+    "version" : 2,
     "builds": [{
         "src": "vercel_test/wsgi.py",
-        "use": "@vercel/python",
+        "use": "@ardnt/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb" , "runtime" : "python3.9"}
-    }],
+    },
+    {
+        "src" : "build_files.sh",
+        "use" : "@vercel/static-build"
+    }
+],
     "routes": [
         {
             "src": "/(.*)",
